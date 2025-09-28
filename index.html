@@ -1,182 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agendamento de Entrevistas - Integração Lever</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MVP Agendamento</title>
+  <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1><i class="fas fa-calendar-check"></i> Sistema de Agendamento</h1>
-            <p>Integrado com a Plataforma Lever</p>
-            <div class="lever-integration">
-                <!--button conectar a lever-->
-                <p>Conectado à conta: <strong>sua-empresa</strong></p>
-            </div>
-        </header>
-        
-        <div class="app-container">
-            <div class="form-container">
-                <h2><i class="fas fa-user"></i> Informações do Candidato</h2>
-                
-                <div class="form-group">
-                    <label for="name">Nome do Candidato</label>
-                    <input type="text" id="name" placeholder="Digite o nome completo" value="Maria Silva">
-                </div>
-                
-                <div class="row">
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" placeholder="Digite o e-mail" value="maria.silva@email.com">
-                        </div>
-                    </div>
-                    <div class="col">
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" placeholder="(00) 00000-0000" value="(11) 99999-9999">
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="position">Cargo Desejado</label>
-                    <select id="position">
-                        <option value="Desenvolvedor Front-end" selected>Desenvolvedor Front-end</option>
-                        <option value="Desenvolvedor Back-end">Desenvolvedor Back-end</option>
-                        <option value="Designer UX/UI">Designer UX/UI</option>
-                        <option value="Gerente de Projetos">Gerente de Projetos</option>
-                        <option value="Analista de Dados">Analista de Dados</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="interview-type">Tipo de Entrevista</label>
-                    <select id="interview-type">
-                        <option value="Online" selected>Online (Videoconferência)</option>
-                        <option value="Presencial">Presencial</option>
-                        <option value="Telefônica">Telefônica</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="lever-stage">Estágio no Processo (Lever)</label>
-                    <select id="lever-stage">
-                        <option value="new" selected>Novo Candidato</option>
-                        <option value="screen">Triagem Inicial</option>
-                        <option value="interview">Entrevista</option>
-                        <option value="offer">Oferta</option>
-                        <option value="hired">Contratado</option>
-                    </select>
-                </div>
-                
-                <div class="integration-info">
-                    <h3><i class="fas fa-sync-alt"></i> Status de Integração</h3>
-                    <p><i class="fas fa-check-circle" style="color: #27ae60;"></i> Conectado à API da Lever</p>
-                    <p><i class="fas fa-check-circle" style="color: #27ae60;"></i> Autenticação válida até: 30/06/2023</p>
-                    <p><i class="fas fa-sync" style="color: #3498db;"></i> Sincronizando dados...</p>
-                </div>
-            </div>
-            
-            <div class="calendar-container">
-                <h2><i class="fas fa-calendar-alt"></i> Escolha de Data e Horário</h2>
-                
-                <div class="calendar">
-                    <div class="calendar-header">
-                        <button><i class="fas fa-chevron-left"></i></button>
-                        <h3>Junho 2023</h3>
-                        <button><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                    
-                    <div class="calendar-grid">
-                        <div class="calendar-cell day">Dom</div>
-                        <div class="calendar-cell day">Seg</div>
-                        <div class="calendar-cell day">Ter</div>
-                        <div class="calendar-cell day">Qua</div>
-                        <div class="calendar-cell day">Qui</div>
-                        <div class="calendar-cell day">Sex</div>
-                        <div class="calendar-cell day">Sáb</div>
-                        
-                        <div class="calendar-cell unavailable">28</div>
-                        <div class="calendar-cell unavailable">29</div>
-                        <div class="calendar-cell unavailable">30</div>
-                        <div class="calendar-cell unavailable">31</div>
-                        <div class="calendar-cell date">1</div>
-                        <div class="calendar-cell date">2</div>
-                        <div class="calendar-cell date">3</div>
-                        
-                        <div class="calendar-cell date">4</div>
-                        <div class="calendar-cell date">5</div>
-                        <div class="calendar-cell date">6</div>
-                        <div class="calendar-cell date">7</div>
-                        <div class="calendar-cell date">8</div>
-                        <div class="calendar-cell date">9</div>
-                        <div class="calendar-cell date">10</div>
-                        
-                        <div class="calendar-cell date">11</div>
-                        <div class="calendar-cell selected">12</div>
-                        <div class="calendar-cell date">13</div>
-                        <div class="calendar-cell date">14</div>
-                        <div class="calendar-cell date">15</div>
-                        <div class="calendar-cell date">16</div>
-                        <div class="calendar-cell date">17</div>
-                        
-                        <div class="calendar-cell date">18</div>
-                        <div class="calendar-cell date">19</div>
-                        <div class="calendar-cell date">20</div>
-                        <div class="calendar-cell date">21</div>
-                        <div class="calendar-cell date">22</div>
-                        <div class="calendar-cell unavailable">23</div>
-                        <div class="calendar-cell unavailable">24</div>
-                        
-                        <div class="calendar-cell date">25</div>
-                        <div class="calendar-cell date">26</div>
-                        <div class="calendar-cell date">27</div>
-                        <div class="calendar-cell date">28</div>
-                        <div class="calendar-cell date">29</div>
-                        <div class="calendar-cell date">30</div>
-                        <div class="calendar-cell unavailable">1</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Horários Disponíveis (12/06/2023)</label>
-                    <div class="time-slots">
-                        <div class="time-slot">09:00</div>
-                        <div class="time-slot">10:00</div>
-                        <div class="time-slot unavailable">11:00</div>
-                        <div class="time-slot">14:00</div>
-                        <div class="time-slot selected">15:00</div>
-                        <div class="time-slot">16:00</div>
-                    </div>
-                </div>
-                
-                <div class="form-group">
-                    <label for="notes">Observações para o Candidato</label>
-                    <textarea id="notes" rows="3" placeholder="Digite informações adicionais para o candidato...">A entrevista será realizada via Google Meet. O link será enviado por e-mail 24h antes do horário agendado.</textarea>
-                </div>
-                
-                <button id="send-invite-btn"><i class="fas fa-paper-plane"></i> Enviar Convite para o Candidato</button>
-                
-                <div class="integration-info">
-                    <h3><i class="fas fa-link"></i> Como integrar com a Lever</h3>
-                    <p>1. Acesse as configurações da sua conta Lever</p>
-                    <p>2. Vá para a seção "Integrações"</p>
-                    <p>3. Gere uma API Key com permissões de agendamento</p>
-                    <p>4. Use o webhook URL: <code>https://api.lever.co/v1/opportunities/{id}/addToStage</code></p>
-                </div>
-            </div>
+  <div class="app-container">
+    <!-- Notificação -->
+    <div id="notification" class="notification hidden">
+      <p id="notification-text"></p>
+    </div>
+
+    <!-- Card principal -->
+    <div class="card">
+      <h1>Agendamento de Entrevistas</h1>
+      <p class="subtitle">Escolha a data e horário disponíveis</p>
+
+      <form id="schedule-form">
+        <!-- Informações do candidato -->
+        <div class="form-group">
+          <label for="candidate">Nome do Candidato</label>
+          <input type="text" id="candidate" placeholder="Digite o nome completo">
         </div>
-    </div>
 
-    <div class="notification" id="notification">
-        <i class="fas fa-check-circle"></i> <span id="notification-text">Convite enviado para o candidato com sucesso!</span>
-    </div>
+        <div class="form-group">
+          <label for="interview-type">Tipo de Entrevista</label>
+          <select id="interview-type">
+            <option value="">Selecione</option>
+            <option value="carreira">Carreira</option>
+            <option value="live-exercise">Live Exercise</option>
+          </select>
+        </div>
 
-    <script src="main.js"></script>
+        <!-- Calendário -->
+        <div class="calendar">
+          <div class="calendar-header">
+            <h3>Setembro 2025</h3>
+          </div>
+          <div class="calendar-grid">
+            <div class="calendar-cell">1</div>
+            <div class="calendar-cell">2</div>
+            <div class="calendar-cell">3</div>
+            <div class="calendar-cell today">4</div>
+            <div class="calendar-cell">5</div>
+            <div class="calendar-cell">6</div>
+            <div class="calendar-cell">7</div>
+            <!-- mais dias conforme necessário -->
+          </div>
+        </div>
+
+        <!-- Horários -->
+        <div class="form-group">
+          <label>Horários Disponíveis</label>
+          <div class="time-slots">
+            <div class="time-slot">09:00</div>
+            <div class="time-slot">10:00</div>
+            <div class="time-slot">11:00</div>
+            <div class="time-slot">14:00</div>
+            <div class="time-slot">15:00</div>
+            <div class="time-slot unavailable">16:00</div>
+          </div>
+        </div>
+
+        <!-- Observações -->
+        <div class="form-group">
+          <label for="notes">Observações</label>
+          <textarea id="notes" placeholder="Digite observações (opcional)"></textarea>
+        </div>
+
+        <!-- Botão -->
+        <button type="submit" id="send-invite-btn">Confirmar Entrevista</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
 </body>
 </html>
+
+
